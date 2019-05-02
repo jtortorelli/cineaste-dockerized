@@ -1,0 +1,12 @@
+<div class="col m-auto">
+    <table class="table table-cineaste">
+        <%= with credits <- @view[:credits] do %>
+            <%= for [jp_staff, jp_name, en_staff, en_name] <- credits do %>
+                <tr>
+                    <td class="text-muted"><%= jp_staff %><br/><%= en_staff %></td>
+                    <td><%= jp_name %><br/><%= en_name %></td>
+                </tr>
+            <% end %>
+        <% end %>
+    </table>
+</div>

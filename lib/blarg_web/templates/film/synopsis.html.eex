@@ -1,0 +1,4 @@
+<div class="container">
+    <div class="alert alert-warning text-center" role="alert"><span class="text-uppercase font-weight-bold">Spoiler Warning!</span></div>
+    <%= raw @view[:synopsis] %>
+</div>

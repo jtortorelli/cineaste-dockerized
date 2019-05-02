@@ -1,0 +1,9 @@
+<div class="container text-center">
+    <%= with images = get_gallery(@view) do %>
+        <%= for {full, thumb} <- images do %>
+        <a class="image-link" href="<%= full %>" data-lightbox="<%= @view[:path] %>">
+            <img class="rounded img-fluid" src="<%= thumb %>"/>
+        </a>
+        <% end %>
+    <% end %>
+</div>

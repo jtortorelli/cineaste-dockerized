@@ -1,0 +1,50 @@
+<div class="d-block d-sm-none">
+    <div class="col-md m-auto">
+        <table class="table table-striped">
+            <tbody>
+                <tr>
+                    <td class="text-muted">Original Name</td>
+                    <td><%= raw @view[:original_name] %></td>
+                </tr>
+                <%= if @view[:members] do %>
+                    <tr>
+                        <td class="text-muted">Members</td>
+                        <td>
+                            <%= raw display_members(@view[:members]) %>
+                        </td>
+                    </tr>
+                <% end %>
+                <%= if @view[:active_period] do %>
+                    <tr>
+                        <td class="text-muted">Active Period</td>
+                        <td><%= @view[:active_period] %></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+        <%= raw @view[:bio] %>
+    </div>
+</div>
+<div class="d-none d-sm-block container">
+    <table class="table table-cineaste float-left m-2 w-auto">
+        <tr>
+            <td class="text-muted">Original Name</td>
+            <td><%= raw @view.original_name %></td>
+        </tr>
+        <%= if @view[:members] do %>
+            <tr>
+                <td class="text-muted">Members</td>
+                <td>
+                    <%= raw display_members(@view[:members]) %>
+                </td>
+            </tr>
+        <% end %>
+        <%= if @view[:active_period] do %>
+            <tr>
+                <td class="text-muted">Active Period</td>
+                <td><%= @view[:active_period] %></td>
+            </tr>
+        <% end %>
+    </table>
+    <%= raw @view[:bio] %>
+</div>

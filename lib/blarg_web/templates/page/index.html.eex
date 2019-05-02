@@ -1,0 +1,11 @@
+<div class="container">
+<div class="row">
+<div class="banner col-md">
+    <img class="img-fluid" src="/images/site/full-logo.jpg">
+</div>
+<div class="twitter-feed col-mid text-center m-auto">
+    <h4>Updates</h4>
+    <a class="twitter-timeline" data-chrome="noheader" data-width="300" data-height="400" data-dnt="true" data-link-color="#ca2d36" href="https://twitter.com/gojira_cineaste">Updates</a>
+</div>
+</div>
+</div>

@@ -1,0 +1,126 @@
+<div class="d-block d-sm-none">
+    <div class="col-md m-auto">
+        <table class="table table-cineaste">
+            <tbody>
+                <%= if @view[:original_name] do %>
+                    <tr>
+                        <td class="text-muted">Original Name</td>
+                        <td><%= raw @view[:original_name] %></td>
+                    </tr>
+                <% end %>
+                <%= if @view[:birth_name] do %>
+                    <tr>
+                        <td class="text-muted">Birth Name</td>
+                        <td><%= raw @view[:birth_name] %></td>
+                    </tr>
+                <% end %>
+                <%= if @view[:japanese_name] do %>
+                    <tr>
+                        <td class="text-muted">Japanese Name</td>
+                        <td><%= raw @view[:japanese_name] %></td>
+                    </tr>
+                <% end %>
+                <%= if @view[:aliases] do %>
+                    <tr>
+                        <td class="text-muted">Aliases</td>
+                        <td>
+                            <%= raw display_aliases(@view) %>
+                        </td>
+                    </tr>
+                <% end %>
+                <%= case status(@view) do %>
+                    <% {:alive, age, dob} -> %>
+                        <tr>
+                            <td class="text-muted">Born</td>
+                            <td><%= dob %> (<%= age %>)<br/>
+                            <%= @view[:birth_place] %></td>
+                        </tr>
+                    <% {:deceased, age, dob, dod} -> %>
+                        <tr>
+                            <td class="text-muted">Born</td>
+                            <td><%= dob %><br/>
+                            <%= @view[:birth_place] %></td>
+                        </tr>
+                        <tr>
+                            <td class="text-muted">Died</td>
+                            <td><%= dod %> (<%= age %>)<br/>
+                            <%= @view[:death_place] %></td>
+                        </tr>
+                    <% {:deceased_unknown_date, dob} -> %>
+                        <tr>
+                            <td class="text-muted">Born</td>
+                            <td><%= dob %><br/>
+                            <%= @view[:birth_place] %></td>
+                        </tr>
+                        <tr>
+                            <td class="text-muted">Died</td>
+                            <td>Unknown</td>
+                        </tr>
+                    <% {:unknown} -> %> <% nil %>
+                <% end %>
+            </tbody>
+        </table>
+        <%= raw @view[:bio] %>
+    </div>
+</div>
+<div class="d-none d-sm-block container">
+    <table class="table table-cineaste float-left m-2 w-auto">
+        <%= if @view[:original_name] do %>
+            <tr>
+                <td class="text-muted">Original Name</td>
+                <td><%= raw @view[:original_name] %></td>
+            </tr>
+        <% end %>
+        <%= if @view[:birth_name] do %>
+            <tr>
+                <td class="text-muted">Birth Name</td>
+                <td><%= raw @view[:birth_name] %></td>
+            </tr>
+        <% end %>
+        <%= if @view[:japanese_name] do %>
+            <tr>
+                <td class="text-muted">Japanese Name</td>
+                <td><%= raw @view[:japanese_name] %></td>
+            </tr>
+        <% end %>
+        <%= if @view[:aliases] do %>
+            <tr>
+                <td class="text-muted">Aliases</td>
+                <td>
+                    <%= display_aliases(@view) %>
+                </td>
+            </tr>
+        <% end %>
+        <%= case status(@view) do %>
+            <% {:alive, age, dob} -> %>
+                <tr>
+                    <td class="text-muted">Born</td>
+                    <td><%= dob %> (<%= age %>)<br/>
+                    <%= @view[:birth_place] %></td>
+                </tr>
+            <% {:deceased, age, dob, dod} -> %>
+                <tr>
+                    <td class="text-muted">Born</td>
+                    <td><%= dob %><br/>
+                    <%= @view[:birth_place] %></td>
+                </tr>
+                <tr>
+                    <td class="text-muted">Died</td>
+                    <td><%= dod %> (<%= age %>)<br/>
+                    <%= @view[:death_place] %></td>
+                </tr>
+            <% {:deceased_unknown_date, dob} -> %>
+                <tr>
+                    <td class="text-muted">Born</td>
+                    <td><%= dob %><br/>
+                    <%= @view[:birth_place] %></td>
+                </tr>
+                <tr>
+                    <td class="text-muted">Died</td>
+                    <td>Unknown</td>
+                </tr>
+            <% {:unknown} -> %> <% nil %>
+        <% end %>
+    </table>
+    <%= raw @view[:bio] %>
+</div>

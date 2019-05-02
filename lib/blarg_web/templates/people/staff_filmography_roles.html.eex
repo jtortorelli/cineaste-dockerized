@@ -1,0 +1,10 @@
+<ul class="p-1 mb-0" style="list-style-type: none;">
+    <%= for role <- @roles do %>
+        <li>
+            <span class="font-italic">
+                <%= if role.film_showcase, do: raw("<a href=\"/films/#{role.film_id}\">#{role.film_title}</a>"), else: "#{role.film_title}" %>
+            </span>
+            <%= raw "(#{role.film_release_date.year})" %>
+        </li>
+    <% end %>
+</ul>

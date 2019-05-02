@@ -1,0 +1,24 @@
+<div class="container">
+    <p>
+        While the cineaste would prefer not to give away his personal contact information, he is very much interested in receiving viewer feedback concerning the content on the site. The best way, in the cineaste's opinion, to accomplish this is to open an issue on the <a href="https://github.com/jtortorelli/cineaste-phoenix/issues">GitHub</a> project. You'll have to create a GitHub account (which is free) and if you don't have a software background you may have to get used to certain computery words when writing up an issue. GitHub provides some default labels you can use to properly categorize your feedback.
+    </p>
+    <p>
+        <ul>
+            <li>
+                For typos or what you perceive to be incorrect information pertaining to a person or film, use the "bug" label. Please include a description of the issue and, if something requires correction, a source to support your requested change (news article, rival website, etc.). If valid, I will make the appropriate change and close the issue as resolved. You can also use bugs for pointing out any broken or malfunctioning links or pages (you know, "actual bugs").
+            </li>
+            <li>
+                If you have a request for a feature to be added, use the "enhancement" label. Please understand that this site is a hobby, so brand new features may take a while to implement. It may also be the case that you are requesting something that's already on my to-do list. If certain features stand out in terms of popularity and I deem them worthy of my time to include on the site, I'll create a milestone in GitHub to track its progress. Check the milestones section on the project to make sure a feature you're about to request isn't already in progress.
+            </li>
+            <li>
+                If you have a general question about the site, use the "question" label. Certain questions may be deemed worthy of inclusion on the FAQ page on the site.
+            </li>
+        </ul>
+    </p>
+    <p>
+        The cineaste is fully prepared to ignore any issues he perceives as spam, that don't have helpful descriptions, or that don't use labels for easy categorization.
+    </p>
+    <p>
+        To be notified of updates as they occur, please consider following our <a href="https://twitter.com/gojira_cineaste">Twitter feed</a>. If you have a fun idea for a Twitter poll relevant to the content on the website (favorite movie out of a series, better director or actor, etc.), please mention @gojira_cineaste with your idea. You can also mention @gojira_cineaste to ask questions or point out issues with the site, although the same restrictions apply with regards to spam, unhelpful comments, etc. Serial offenders will be blocked with extreme prejudice (the Twitter feed is part of the hobby and hobbies should be fun, dammit).
+    </p>
+</div>

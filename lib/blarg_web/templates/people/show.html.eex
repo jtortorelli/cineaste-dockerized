@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row">
+        <div class="d-block d-sm-none col text-center">
+            <img class="rounded-circle shadow img-fluid" src="/images/profiles/<%= @view[:path] %>.jpg"/>
+            <h6><%= display_name(@view) %></h6>
+        </div>
+        <div class="d-none d-sm-block">
+            <img class="rounded-circle shadow img-fluid" src="/images/profiles/<%= @view[:path] %>.jpg"/>
+            <h2><%= display_name(@view) %></h2>
+        </div>
+    </div>
+</div>
+<%= if :group == @view[:type] do %>
+    <%= render_group_tabbed_content(@view) %>
+<% else %>
+    <%= render_person_tabbed_content(@view) %>
+<% end %>

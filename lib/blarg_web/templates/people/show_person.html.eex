@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="row">
+        <div class="d-block d-sm-none col text-center">
+            <img class="rounded-circle shadow img-fluid" src="/images/profiles/person/<%= @view.id %>.jpg"/>
+            <h6><%= @view.display_name %></h6>
+        </div>
+        <div class="d-none d-sm-block">
+            <img class="rounded-circle shadow img-fluid" src="/images/profiles/person/<%= @view.id %>.jpg"/>
+            <h2><%= @view.display_name %></h2>
+        </div>
+    </div>
+</div>
+<%= render_person_tabbed_content(@view) %>

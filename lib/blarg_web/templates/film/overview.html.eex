@@ -1,0 +1,169 @@
+<div class="d-block d-sm-none">
+    <div class="col-md text-center">
+        <img src="/images/posters/<%= @view[:path] %>.jpg" class="img-fluid"><br/>
+        <%= if not is_nil(display_original_title(@view)) do %>
+            <%= with {title, others} = display_original_title(@view) do %>
+                <p>
+                    <strong>
+                        <em>
+                            <%= title %><br/>
+                        </em>
+                    </strong>
+                    <span class="small">
+                        <em>
+                            <%= for o <- others do %>
+                                <%= o %><br/>
+                            <% end %>
+                        </em>
+                    </span>
+                </p>
+            <% end %>
+        <% end %>
+    </div>
+    <div class="col-md m-auto">
+        <table class="table table-cineaste">
+            <tbody>
+                <%= if not is_nil(@view[:aliases]) do %>
+                    <tr>
+                        <td class="text-muted">Also known as</td>
+                        <td>
+                            <em>
+                                <%= display_aliases(@view) %>
+                            </em>
+                        </td>
+                    </tr>
+                <% end %>
+                <%= for {roles, staffs} <- @view[:staff] do %>
+                    <tr>
+                        <td class="text-muted"><%= display_roles(roles) %></td>
+                        <td>
+                            <%= display_staff(staffs) %>
+                        </td>
+                    </tr>
+                <% end %>
+                <tr>
+                    <td class="text-muted">Production Companies</td>
+                    <td>
+                        <%= display_studios(@view) %>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-muted">Release Date</td>
+                    <td><%= display_release_date(@view[:release_date]) %></td>
+                </tr>
+                <tr>
+                    <td class="text-muted">Runtime</td>
+                    <td><%= @view[:runtime] %> minutes</td>
+                </tr>
+                <%= if not is_nil(@view[:preceded_by]) do %>
+                    <tr>
+                        <td class="text-muted">Preceded by</td>
+                        <td>
+                            <%= display_linked_film(@view[:preceded_by]) %>
+                        </td>
+                    </tr>
+                <% end %>
+                <%= if not is_nil(@view[:followed_by]) do %>
+                    <tr>
+                        <td class="text-muted">Followed by</td>
+                        <td>
+                            <%= display_linked_film(@view[:followed_by]) %>
+                        </td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md">
+    </div>
+</div>
+<div class="container-fluid d-none d-sm-block">
+    <div class="row">
+        <div class="col-md">
+            <h6>Poster</h6>
+            <table class="table table-non-fluid table-cineaste text-center">
+                <tr>
+                    <td>
+                        <img src="/images/posters/<%= @view[:path] %>.jpg" class="img-fluid"><br/>
+                        <%= if not is_nil(display_original_title(@view)) do %>
+                            <%= with {title, others} = display_original_title(@view) do %>
+                                <p>
+                                    <strong>
+                                        <em>
+                                            <%= title %><br/>
+                                        </em>
+                                    </strong>
+                                    <span class="text-muted">
+                                        <em>
+                                            <%= for o <- others do %>
+                                                <%= o %><br/>
+                                            <% end %>
+                                        </em>
+                                    </span>
+                                </p>
+                            <% end %>
+                        <% end %>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-md">
+            <h6>Staff</h6>
+            <table class="table table-non-fluid table-cineaste">
+                <%= for {roles, staffs} <- @view[:staff] do %>
+                    <tr>
+                        <td class="text-muted"><%= display_roles(roles) %></td>
+                        <td>
+                            <%= display_staff(staffs) %>
+                        </td>
+                    </tr>
+                <% end %>
+            </table>
+        </div>
+        <div class="col-md">
+            <h6>Info</h6>
+            <table class="table table-non-fluid table-cineaste">
+                <%= if not is_nil(@view[:aliases])do %>
+                    <tr>
+                        <td class="text-muted">Also known as</td>
+                        <td>
+                            <em>
+                                <%= display_aliases(@view) %>
+                            </em>
+                        </td>
+                    </tr>
+                <% end %>
+                <tr>
+                    <td class="text-muted">Production Companies</td>
+                    <td>
+                        <%= display_studios(@view)%>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-muted">Release Date</td>
+                    <td><%= display_release_date(@view[:release_date]) %></td>
+                </tr>
+                <tr>
+                    <td class="text-muted">Runtime</td>
+                    <td><%= @view[:runtime] %> minutes</td>
+                </tr>
+                <%= if not is_nil(@view[:preceded_by]) do %>
+                    <tr>
+                        <td class="text-muted">Preceded by</td>
+                        <td>
+                                <%= display_linked_film(@view[:preceded_by]) %>
+                        </td>
+                    </tr>
+                <% end %>
+                <%= if not is_nil(@view[:followed_by]) do %>
+                    <tr>
+                        <td class="text-muted">Followed by</td>
+                        <td>
+                                <%= display_linked_film(@view[:followed_by]) %>
+                        </td>
+                    </tr>
+                <% end %>
+            </table>
+        </div>
+    </div>
+</div>

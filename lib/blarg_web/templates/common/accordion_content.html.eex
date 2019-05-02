@@ -1,0 +1,27 @@
+<div class="container-fluid">
+    <div class="accordion" id="<%= @page %>-accordion">
+        <%= for {card, counter} <- Enum.with_index(@cards) do %>
+            <div class="card">
+                <div class="card-header px-0" id="header<%= counter %>">
+                    <a
+                        class="<%= if counter != 0, do: "collapsed" %>"
+                        href="#"
+                        data-toggle="collapse"
+                        data-target="#collapse<%= counter %>"
+                        aria-expanded="<%= counter == 0 %>"
+                        aria-controls="collapse<%= counter %>">
+                        <%= render_accordion_content_header(@page, card) %>
+                    </a>
+                </div>
+                <div id="collapse<%= counter %>"
+                     class="collapse <%= if counter == 0, do: "show" %>"
+                     aria-labelledby="header<%= counter %>"
+                     data-parent="#<%= @page %>-accordion">
+                    <div class="card-body px-0 py-1">
+                        <%= render_accordion_content_body(@page, card) %>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>

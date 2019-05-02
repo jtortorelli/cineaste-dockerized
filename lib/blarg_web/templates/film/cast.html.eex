@@ -1,0 +1,76 @@
+<div class="d-block d-sm-none">
+    <div class="col-md text-center">
+        <p>
+            <strong>Top Billed Cast</strong>
+        </p>
+    </div>
+    <div class="col-md m-auto">
+        <table class="table table-cineaste">
+            <%= for {person, roles} <- @view[:top_billed_cast] do %>
+                <tr>
+                    <td>
+                        <%= raw link_showcased_person(person) %>
+                    </td>
+                    <td class="text-muted">
+                        <%= display_roles(roles) %>
+                    </td>
+                </tr>
+            <% end %>
+        </table>
+    </div>
+    <%= if @view[:other_cast] do %>
+        <div class="col-md text-center">
+            <p>
+                <strong>Rest of Cast Listed Alphabetically</strong>
+            </p>
+        </div>
+        <div class="col-md m-auto">
+            <table class="table table-cineaste">
+                <%= for {person, roles} <- @view[:other_cast] do %>
+                    <tr>
+                        <td>
+                            <%= raw link_showcased_person(person) %>
+                        <td class="text-muted">
+                            <%= display_roles(roles) %>
+                        </td>
+                    </tr>
+                <% end %>
+            </table>
+        </div>
+    <% end %>
+</div>
+<div class="container d-none d-sm-block">
+    <div class="row">
+        <div class="col-md">
+            <h6>Top Billed Cast</h6>
+            <table class="table table-cineaste table-non-fluid">
+                <%= for {person, roles} <- @view[:top_billed_cast] do %>
+                    <tr>
+                        <td>
+                            <%= raw link_showcased_person(person) %>
+                        </td>
+                        <td class="text-muted">
+                            <%= display_roles(roles) %>
+                        </td>
+                    </tr>
+                <% end %>
+            </table>
+        </div>
+        <%= if @view[:other_cast] do %>
+            <div class="col-md">
+                <h6>Rest of Cast Listed Alphabetically</h6>
+                <table class="table table-cineaste table-non-fluid">
+                    <%= for {person, roles} <- @view[:other_cast] do %>
+                        <tr>
+                            <td>
+                                <%= raw link_showcased_person(person) %>
+                            <td class="text-muted">
+                                <%= display_roles(roles) %>
+                            </td>
+                        </tr>
+                    <% end %>
+                </table>
+            </div>
+        <% end %>
+    </div>
+</div>

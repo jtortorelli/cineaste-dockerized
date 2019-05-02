@@ -1,0 +1,37 @@
+<div class="d-none d-sm-block">
+    <div class="row">
+           <%= for view <- @views do %>
+            <div class="text-center m-1 p-0 film-tile" style="display:block;" data-title="<%= view.title %>" data-aliases="<%= render_aliases(view) %>">
+                <div class="bounded">
+                    <a href="/films/<%= view.path %>"><img class="rounded index-poster shadowed my-1" src="/images/posters/<%= view.path %>.jpg"></a><br/>
+                    <span class="display-bordered-top">
+                        <span class="font-weight-bold"><%= view.title %></span><br/>
+                        <span class="text-muted"><%= view.release_date.year %></span><br/>
+                    </span>
+                </div>
+            </div>
+           <% end %>
+    </div>
+</div>
+<div class="d-block d-sm-none">
+    <%= for view <- @views do %>
+        <div class="row mb-2 film-tile" data-title="<%= view.title %>" data-aliases="<%= render_aliases(view) %>">
+            <a class="film-show-link-xs w-100" href="/films/<%= view.path %>">
+                <div class="film-show-tab col p-2 shadow-sm">
+                    <div>
+                        <img src="/images/posters/<%= view.path %>.jpg" class="float-left film-index-thumb rounded"/>
+                    </div>
+                    <div class="text-truncate">
+                        <span class="font-weight-bold">
+                            <%= view.title %>
+                        </span><br/>
+                        <span class="text-muted">
+                            <%= view.release_date.year %>
+                        </span>
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </a>
+        </div>
+    <% end %>
+</div>

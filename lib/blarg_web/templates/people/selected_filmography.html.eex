@@ -1,0 +1,1 @@
+<%= render_selected_filmography(@view) %>

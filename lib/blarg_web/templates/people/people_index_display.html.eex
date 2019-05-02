@@ -1,0 +1,48 @@
+<div class="d-none d-sm-block">
+    <div class="row">
+        <%= for view <- @views do %>
+        <div class="text-center m-1 p-0 people-bounded people-tile" style="display:block;" data-names="<%= search_names(view) %>">
+            <a href="/people/<%= view[:path] %>">
+                <img class="rounded-circle shadowed people-index-desktop my-1" src="/images/profiles/<%= view[:path] %>.jpg"/><br/>
+            </a>
+            <span class="display-bordered-top display-bordered-bottom">
+            <%= if :group == view[:type] do %>
+                <span class="font-weight-bold"><%= display_name(view) %></span>
+            <% else %>
+                <%= with [strong | others] = view |> sort_name do %>
+                    <span class="font-weight-bold"><%= strong %></span>
+                    <%= unless Enum.empty?(others) do %>
+                        <br/><span><%= Enum.join(others, " ")%><br/></span>
+                    <% end %>
+                <% end %>
+            <% end %>
+            </span>
+            <span class="text-muted small">
+                <%= raw(view[:top_roles] |> Enum.map(&(display_role(&1))) |> Enum.join("<br/>")) %>
+            </span>
+        </div>
+        <% end %>
+    </div>
+</div>
+<div class="d-block d-sm-none">
+    <%= for view <- @views do %>
+        <div class="row mb-2 people-tile" style="display:block;" data-names="<%= search_names(view) %>">
+            <a class="film-show-link-xs w-100" href="/people/<%= view[:path] %>">
+                <div class="film-show-tab col p-2 shadow-sm">
+                    <div>
+                        <img src="/images/profiles/<%= view[:path] %>.jpg" class="float-left people-index-thumb rounded"/>
+                    </div>
+                    <div>
+                        <span class="align-middle">
+                            <span class="font-weight-bold">
+                                <%= display_name(view) %>
+                            </span><br/>
+                            <%= view[:top_roles] |> Enum.at(0) |> display_role() %>
+                        </span>
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </a>
+        </div>
+    <% end %>
+</div>

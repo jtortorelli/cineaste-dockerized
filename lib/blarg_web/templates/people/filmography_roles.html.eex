@@ -1,0 +1,9 @@
+<ul class="p-1 mb-0" style="list-style-type: none;">
+    <%= for role <- @roles do %>
+        <li>
+            <%= display_linked_film(role) %>
+            <br/>
+            <%= display_characters(role) %>
+        </li>
+    <% end %>
+</ul>

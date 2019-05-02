@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+        <div class="d-block d-sm-none col text-center">
+            <h2>People</h2>
+        </div>
+        <div class="d-none d-sm-block">
+            <h2>People</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Search</span>
+            </div>
+            <input type="text" id="people-search-bar" class="form-control" aria-label="Search" aria-describedby="basic-addon1">
+        </div>
+    </div>
+    <div id="people-index-display">
+        <%= render "people_index_display.html", views: @views %>
+    </div>
+</div>

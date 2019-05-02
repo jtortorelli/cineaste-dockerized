@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="container">
+        <ul class="nav nav-pills nav-tabs" id="<%= @page %>-tabs" role="tablist">
+            <%= for tab <- Enum.with_index(@tabs) do %>
+                <li class="nav-item">
+                    <a class="nav-link<%= if elem(tab, 1) == 0, do: " active" %>"
+                    id="<%= elem(tab, 0) %>-tab"
+                    data-toggle="tab"
+                    href="#<%= elem(tab, 0) %>"
+                    role="tab"
+                    aria-controls="<%= elem(tab, 0) %>"
+                    aria-selected="<%= if elem(tab, 1) == 0, do: "true", else: "false" %>">
+                    <%= elem(tab, 0) |> Atom.to_string |> String.replace("_", " ") %>
+                    </a>
+                </li>
+            <% end %>
+        </ul>
+    </div>
+</div>
+<div class="row">
+    <div class="tab-content" id="<%= @page %>-tab-content">
+        <%= for tab <- Enum.with_index(@tabs) do %>
+            <div role="tabpanel"
+            class="tab-pane fade<%= if elem(tab, 1) == 0, do: " show active" %>"
+            id="<%= elem(tab, 0) %>"
+            aria-labelledby="<%= elem(tab, 0) %>-tab">
+                <div class="container-fluid">
+                    <div class="row">
+                        <%= render_content(@page, elem(tab, 0), @view) %>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>
