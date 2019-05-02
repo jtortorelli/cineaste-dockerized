@@ -1,18 +1,9 @@
-# Blarg
+# The Godzilla Cineaste
 
-To start your Phoenix server:
+This is actually version 3 of the website.
 
-  * Install dependencies with `mix deps.get`
-  * Start Phoenix endpoint with `mix phx.server`
+- Version 1 @ `cineaste-phoenix` was the initial Phoenix build of the site launched in 2016 to Heroku.
+- Version 2 @ `cineaste_umbrella` was the rebuild of the Phoenix app as an umbrella, attempting to use more idiomatic Elixir. This build initially continued to use PostgreSQL as the data store and then was refactored to serve data from static Elixir data modules. Development began in 2018, deployed to Amazon S3/CloudFront in 2019.
+- Version 3 condenses `cineaste_umbrella` to a single app (no umbrella) and is intended to deploy a release build to LightSail.
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
-
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
-
-## Learn more
-
-  * Official website: http://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
+I turned around immediately after launching version 2 and started work on version 3 when I realized that CloudFront wasn't going to be ideal for my web hosting needs and I named it `blarg` in a fit of frustration while trying to get releases to work.
