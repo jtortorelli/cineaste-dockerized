@@ -16,8 +16,8 @@ config :blarg,
          port: System.get_env("PORT") || 4000
        ],
        url: [
-         host: "example.com",
-         port: 80
+         host: "localhost",
+         port: System.get_env("PORT") || 4000
        ],
        cache_static_manifest: "priv/static/cache_manifest.json",
        server: true,
